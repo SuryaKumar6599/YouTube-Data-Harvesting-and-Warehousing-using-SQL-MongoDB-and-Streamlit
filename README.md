@@ -28,20 +28,33 @@ This code initializes connections to the YouTube API using an API key and connec
 
 3. Functions for Retrieving Data:
 The script defines functions to fetch channel, playlist, video, and comment details from the YouTube API.
+- `youtube_channel(youtube, channel_id)`: Retrieves details about a YouTube channel.
+- `get_playlists(youtube, channel_id)`: Retrieves details about playlists belonging to a channel.
+- `channel_videoId(youtube, playlist_Id)`: Retrieves video IDs from a playlist.
+- `video_details(youtube, video_Id)`: Retrieves details about a video.
+- `get_comments_in_videos(youtube, video_id)`: Retrieves comments for a video.
 
 4. Functions for Data Import:
 Functions are provided to import data retrieved from the YouTube API into MongoDB and PostgreSQL databases.
+- `channel_Details(channel_id)`: Retrieves channel details, playlists, videos, and comments using the API functions and stores them in the respective collections in MongoDB.
+- `channel_table()`, `playlist_table()`, `videos_table()`, `comments_table()`: Create tables in the PostgreSQL database and insert data from the corresponding collections in MongoDB.
 
 5. Channel IDs:
 The code specifies channel IDs for which data will be collected and stored in databases.
 
 6. Functions for Data Display:
 Several functions are defined to display data stored in the PostgreSQL database.
+- `display_channels()`: Retrieves and displays data from the "channel" table.
+- `display_videos()`: Retrieves and displays data from the "videos" table.
+- `display_playlists()`: Retrieves and displays data from the "playlists" table.
+- `display_comments()`: Retrieves and displays data from the "comments" table.
 
 7. Required Data to View:
 A function (q1()) executes a SQL query to retrieve specific data from the "videos" table.
 
 8. Execution:
 The script concludes with function calls to create tables and import data into the PostgreSQL database. It also displays data from the corresponding tables in the PostgreSQL database.
+- `tables()`: Creates tables and imports data into the PostgreSQL database.
+- `display_channels()`, `display_videos()`, `display_playlists()`, `display_comments()`: Displays the data from the corresponding tables in the PostgreSQL database.
 
 Please note that this code assumes that you have set up the necessary API key, database connections, and have the required databases and collections available. You may need to adapt the code to suit your specific setup and requirements.
